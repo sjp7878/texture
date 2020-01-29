@@ -21,14 +21,14 @@ texture:
   tagline: 忍忍忍이 세개면 살인도 면한다... 
   date_format: "%b %-d, %Y"
   style: black
-  showNav: false
+  showNav: true
   showPicker: true
 
   # generate social links in footer
   social_links:
     twitter: https://twitter.com/jps7878
     github:  https://sjp7878.github.com
-    linkedIn: in/thelehhman
+    linkedIn: ko/sjp7878
     rss: rss
  
 
