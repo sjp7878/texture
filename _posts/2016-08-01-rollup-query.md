@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Etc Chart"
-description: 날짜관련 connect by sql
-date:   2016-08-01 23:29:44 +0530
+title:  "rollup() 쿼리"
+description: rollup() 쿼리
+date:   2016-08-01 23:21:44 +0530
 categories: Oracle Sql
 ---
 
