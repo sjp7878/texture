@@ -17,8 +17,8 @@ sass:
 
 permalink: /posts/:title/
 texture:
-  title: Adam Denisov
-  tagline: Developer. Designer
+  title: Feel's Blog
+  tagline: 忍忍忍이 세개면 살인도 면한다... 
   date_format: "%b %-d, %Y"
   style: black
   showNav: false
@@ -26,8 +26,8 @@ texture:
 
   # generate social links in footer
   social_links:
-    twitter: thelehhman
-    github:  thelehhman
+    twitter: https://twitter.com/jps7878
+    github:  https://sjp7878.github.com
     linkedIn: in/thelehhman
     rss: rss
  
