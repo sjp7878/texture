@@ -1,0 +1,27 @@
+---
+layout: post
+title:  "Unpivot"
+description: unpivot sql
+date:   2017-11-21 21:20:44 +0530
+categories: Javascript NodeJS
+---
+```sql
+with test_t
+as
+(select 1 as id, 1 as jan_income, 1 as jan_expense, 2 as feb_income, 3 as feb_expense,
+ 5 as mar_income, 2 as mar_expense from dual
+union all
+select 2 as id, 5 as jan_income, 6 as jan_expense, 4 as feb_income, 4 as feb_expense,
+null as mar_income, null as mar_expense from dual
+)
+select *
+from test_t
+unpivot include nulls (
+        (income, expense) for month in (
+                                     (jan_income, jan_expense),
+                                     (feb_income, feb_expense),
+                                     (mar_income, mar_expense)
+                                   )
+)
+;
+```
