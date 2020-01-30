@@ -3,7 +3,7 @@ layout: post
 title:  "rollup() 쿼리"
 description: rollup() 쿼리
 date:   2016-08-01 23:21:44 +0530
-categories: Oracle Sql
+categories: Oracle
 ---
 
 rollup() 쿼리
