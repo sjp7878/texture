@@ -3,7 +3,7 @@ layout: post
 title:  "connect by"
 description: connect by sql
 date:   2016-08-01 23:22:44 +0530
-categories: Oracle Sql
+categories: Oracle
 ---
 
 connect by sql
