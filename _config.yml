@@ -23,6 +23,7 @@ texture:
   style: black
   showNav: false
   showPicker: true
+  disqus_shortname: tech
 
   # generate social links in footer
   social_links:
