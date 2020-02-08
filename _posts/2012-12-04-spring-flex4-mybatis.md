@@ -92,36 +92,11 @@ Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로
                 <param-name>flex.class.path</param-name>
                 <param-value>/WEB-INF/flex/hotfixes,/WEB-INF/flex/jars</param-value>
         </context-param>
-
-        <!-- Http Flex Session attribute and binding listener support 
-        <listener>
-                <listener-class>flex.messaging.HttpFlexSession</listener-class>
-        </listener>-->
-        
+ 
         <listener>
          <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
          </listener>
-
-        <!-- MessageBroker Servlet 
-        <servlet>
-                <servlet-name>MessageBrokerServlet</servlet-name>
-                <servlet-class>flex.messaging.MessageBrokerServlet</servlet-class>
-                <init-param>
-                        <param-name>services.configuration.file</param-name>
-                        <param-value>/WEB-INF/flex/services-config.xml</param-value>
-                </init-param>
-                <init-param>
-                        <param-name>flex.write.path</param-name>
-                        <param-value>/WEB-INF/flex</param-value>
-                </init-param>
-                <load-on-startup>1</load-on-startup>
-        </servlet>
-        
-        <servlet-mapping>
-                <servlet-name>MessageBrokerServlet</servlet-name>
-                <url-pattern>/messagebroker/*</url-pattern>
-        </servlet-mapping>-->
-        
+         
         <servlet>
          <servlet-name>MessageBrokerServlet</servlet-name>
          <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -149,17 +124,6 @@ Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
-        <!-- for WebSphere deployment, please uncomment -->
-        <!--
-                <resource-ref>
-                <description>Flex Messaging WorkManager</description>
-                <res-ref-name>wm/MessagingWorkManager</res-ref-name>
-                <res-type>com.ibm.websphere.asynchbeans.WorkManager</res-type>
-                <res-auth>Container</res-auth>
-                <res-sharing-scope>Shareable</res-sharing-scope>
-        </resource-ref>
-        -->
 </web-app>
 ```
 servlet-name을 `MessageBrokerServlet`으로 하였기때문에 spring에서 `MessageBrokerServlet-servlet.xml`을 찾으려 할것이다.
@@ -247,17 +211,6 @@ servlet-mapping의 url-pattern의 `/messagebroker/*` (flex의 AMF통신) 오는�
         <!-- Common Logger Configuration -->
         <aop:aspectj-autoproxy/>
         <bean id="commonLogger" class="test.widwin.common.CommonLogger"/>
-        
-        <!-- <bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor"/>
-        
-        <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-                <property name="dataSource">
-                        <ref local="dataSource"/>
-                </property>
-                <property name="nativeJdbcExtractor">
-                        <ref local="nativeJdbcExtractor"/>
-                </property>
-        </bean> -->
 </beans>
 ```
 
@@ -292,7 +245,6 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
                            http://www.springframework.org/schema/flex
                            http://www.springframework.org/schema/flex/spring-flex-1.5.xsd">
                            
-        <!--         <context:annotation-config/>                            -->
         <context:component-scan base-package="test.widwin.blogics.board"/>                 
          
     <bean class="test.widwin.blogics.board.BoardController">
@@ -310,39 +262,7 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
-<configuration>
-        <!-- <environments default="development">
-                <environment id="development">
-                        <transactionManager type="JDBC"/>
-                        <dataSource type="POOLED">
-                                <property name="driver" value="${driver}"/>
-                                <property name="url" value="${url}"/>
-                                <property name="username" value="${username}"/>
-                                <property name="password" value="${password}"/>
-                        </dataSource>
-                </environment>
-        </environments>
-        
-        <settings>
-                <setting name="cacheEnabled" value="true"/>
-                <setting name="lazyLoadingEnabled" value="true"/>
-                <setting name="multipleResultSetsEnabled" value="true"/>
-                <setting name="useColumnLabel" value="true"/>
-                <setting name="useGeneratedKeys" value="false"/>
-                <setting name="autoMappingBehavior" value="PARTIAL"/>
-                <setting name="defaultExecutorType" value="SIMPLE"/>
-                <setting name="defaultStatementTimeout" value="25000"/>
-                <setting name="safeRowBoundsEnabled" value="false"/>
-                <setting name="mapUnderscoreToCamelCase" value="false"/>
-                <setting name="localCacheScope" value="SESSION"/>
-                <setting name="jdbcTypeForNull" value="OTHER"/>
-                <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
-        </settings> -->
-        
-        <!-- <mappers>
-                <mapper resource="resources/mappers/BoardMapper.xml"/>
-        </mappers> -->
-        
+<configuration>        
         <typeAliases>
                 <typeAlias alias="Board" type="test.widwin.blogics.board.vo.BoardBean"/>
         </typeAliases>
@@ -435,7 +355,6 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
                         <s:Button id="btnIns" label="등록" click="insertBoard()" />
                 </s:FormItem>
         </s:Form>
-
 </s:Application>
 ```
 
@@ -566,19 +485,13 @@ import test.widwin.blogics.board.vo.BoardBean;
 
 @Repository("boardDao")
 public class BoardDao extends SqlSessionDaoSupport{
-//        @Resource(name="sqlSessionTemplate")
-//        private SqlSession sessionTemplate;
-        
         public List<BoardBean> getBoardList(int pageView){
-//                IBoardMapper iBoardMapper = sessionTemplate.getMapper(IBoardMapper.class);
-//                return iBoardMapper.getBoardList(pageView);
                 return getSqlSession().selectList("test.widwin.blogics.board.dao.IBoardMapper.getBoardList", pageView);
         }
         
         public int insertBoard(BoardBean boardBean){
                 return getSqlSession().insert("test.widwin.blogics.board.dao.IBoardMapper.insertBoard", boardBean);
-        }
-        
+        }  
 }
 ```
 
@@ -634,10 +547,6 @@ public interface IBoardMapper {
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 
-<!-- An example log4j configuration xml file for log4jdbc -->
-<!-- Logging levels are:                                  -->
-<!-- DEBUG < INFO < WARN < ERROR < FATAL                  -->
-
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
   <appender name="stdout-appender" class="org.apache.log4j.ConsoleAppender">
@@ -678,18 +587,6 @@ public interface IBoardMapper {
     </layout>
   </appender>
 
-  <!--
-       The Following 5 logs can be turned on and off while the server is running
-       LIVE in order to trace the SQL and/or all JDBC coming out of the application.
-
-       To turn a log on, set the level value to INFO or DEBUG (to see class name and
-       line number information in the log)  The DEBUG setting is much more inefficient
-       but the output is much more useful.
-
-       To turn off JDBC logging completely, you must set all 5 logs to a level higher 
-       than ERROR (FATAL is suggested.)
-  -->
-
   <!-- log SQL (pre-execution) plus exceptions caused by SQL -->
   <logger name="jdbc.sqlonly" additivity="false">
     <level value="debug"/>
@@ -700,7 +597,6 @@ public interface IBoardMapper {
   <logger name="jdbc.sqltiming" additivity="false">
     <level value="debug"/>
     <appender-ref ref="stdout-appender"/>
-<!--     <appender-ref ref="sql-timing-appender"/> -->
   </logger>
 
   <!-- only use the two logs below to trace ALL JDBC information,
@@ -776,24 +672,6 @@ public interface IBoardMapper {
 
     <security>
         <login-command class="flex.messaging.security.TomcatLoginCommand" server="Tomcat"/>
-        <!-- Uncomment the correct app server
-        <login-command class="flex.messaging.security.TomcatLoginCommand" server="JBoss">
-                <login-command class="flex.messaging.security.JRunLoginCommand" server="JRun"/>        
-        <login-command class="flex.messaging.security.WeblogicLoginCommand" server="Weblogic"/>
-        <login-command class="flex.messaging.security.WebSphereLoginCommand" server="WebSphere"/>
-        -->
-
-        <!-- 
-        <security-constraint id="basic-read-access">
-            <auth-method>Basic</auth-method>
-            <roles>
-                <role>guests</role>
-                <role>accountants</role>
-                <role>employees</role>
-                <role>managers</role>
-            </roles>
-        </security-constraint>
-         -->
     </security>
 
     <channels>
@@ -816,19 +694,6 @@ public interface IBoardMapper {
                 <polling-interval-seconds>4</polling-interval-seconds>
             </properties>
         </channel-definition>
-
-        <!--
-        <channel-definition id="my-http" class="mx.messaging.channels.HTTPChannel">
-            <endpoint url="http://{server.name}:{server.port}/{context.root}/messagebroker/http" class="flex.messaging.endpoints.HTTPEndpoint"/>
-        </channel-definition>
-
-        <channel-definition id="my-secure-http" class="mx.messaging.channels.SecureHTTPChannel">
-            <endpoint url="https://{server.name}:{server.port}/{context.root}/messagebroker/httpsecure" class="flex.messaging.endpoints.SecureHTTPEndpoint"/>
-            <properties>
-                <add-no-cache-headers>false</add-no-cache-headers>
-            </properties>
-        </channel-definition>
-        -->
     </channels>
 
     <logging>
@@ -851,18 +716,8 @@ public interface IBoardMapper {
     <system>
         <redeploy>
             <enabled>false</enabled>
-            <!-- 
-            <watch-interval>20</watch-interval>
-            <watch-file>{context.root}/WEB-INF/flex/services-config.xml</watch-file>
-            <watch-file>{context.root}/WEB-INF/flex/proxy-config.xml</watch-file>
-            <watch-file>{context.root}/WEB-INF/flex/remoting-config.xml</watch-file>
-            <watch-file>{context.root}/WEB-INF/flex/messaging-config.xml</watch-file>
-            <watch-file>{context.root}/WEB-INF/flex/data-management-config.xml</watch-file>
-            <touch-file>{context.root}/WEB-INF/web.xml</touch-file>
-             -->
         </redeploy>
     </system>
-
 </services-config>
 ```
 
