@@ -259,7 +259,7 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
 
 #### [mybatis-config.xml]
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
@@ -271,7 +271,7 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
 </configuration>
 ```
 
-<mappers>부분을 주석을 풀어서 관리해도 되나 web-application-config.xml 에서 mapperLocations를 잡아주었으므로 따로 관리하지 않아도 된다.
+web-application-config.xml 에서 mapperLocations를 잡아주었으므로 따로 관리하지 않아도 된다.   
 
 #### [TEST.mxml]
 
