@@ -273,7 +273,7 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
 
 web-application-config.xml 에서 mapperLocations를 잡아주었으므로 따로 관리하지 않아도 된다.   
 
-#### [TEST.mxml]
+#### [TEST.mxml]   
 
 ```flex
 <?xml version="1.0" encoding="utf-8"?>
