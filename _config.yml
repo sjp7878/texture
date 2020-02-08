@@ -23,7 +23,7 @@ texture:
   style: black
   showNav: false
   showPicker: true
-  disqus_shortname: sjp7878-github-io
+  #disqus_shortname: sjp7878-github-io
 
   # generate social links in footer
   social_links:
