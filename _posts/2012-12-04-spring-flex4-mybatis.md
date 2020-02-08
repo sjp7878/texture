@@ -52,7 +52,7 @@ Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로
 
 보면 output folder를 바꿨기 때문에 bin-debug 폴더가 안보이고 `WebContent` 폴더밑으로 기본 파일들이 생긴걸 확인할 수 있다.
 
-## 다음으로 Spring과 Flex를 연동 해야한다.
+## Spring과 Flex 연동.
 
 **모든 jar파일들은 합해놓은게 [여기](http://blog.naver.com/sjp007774/150153185137)에 있다.**
 
@@ -80,8 +80,9 @@ Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로
 
 ![스크린샷 2020-02-01 오후 8 55 52](https://user-images.githubusercontent.com/12682121/73591698-41569d00-4535-11ea-86e9-795941f2fe35.png)
 
-## 다음으로 'WEB-INF/web.xml' 파일을 수정해야 된다.
-### [web.xml]
+## 설정파일 수정.
+
+#### [web.xml]
 
 ```flex
 <?xml version="1.0" encoding="UTF-8"?>
@@ -138,7 +139,7 @@ MyBatis에 관련한 `mybatis-config.xml` 세가지 xml로 분류하여 WEB-INF/
 
 servlet-mapping의 url-pattern의 `/messagebroker/*` (flex의 AMF통신) 오는건 spring의 DispatcherServlet 클래스에서 처리하게된다.
 
-### [web-application-config.xml]
+#### [web-application-config.xml]
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -216,7 +217,7 @@ servlet-mapping의 url-pattern의 `/messagebroker/*` (flex의 AMF통신) 오는�
 
 properties configuration에서 반드시 `classpath*`를 붙여주어야한다. 상대경로로 찾기때문에 안붙여주면 찾지 못한다.
 
-### [jdbc.test.properties]
+#### [jdbc.test.properties]
 
 ```
 #jdbc.widwin.driverClassName= oracle.jdbc.OracleDriver
@@ -229,7 +230,7 @@ jdbc.widwin.password=test
 ```
 slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.(xxx 를 아이피로 바꿔주면 됨)
 
-### [bean-remoting-destination.xml]
+#### [bean-remoting-destination.xml]
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -256,7 +257,7 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
 
 <context:component-scan... 이 있으면 <bean에 class를 설정하지 않아도 됨. destination에 message-broker 꼭 설정해줘야 함. remoting-config.xml 파일은 관리안함.
 
-### [mybatis-config.xml]
+#### [mybatis-config.xml]
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -274,7 +275,7 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
 
 따로 관리하지 않아도 된다.
 
-### [TEST.mxml]
+#### [TEST.mxml]
 
 ```flex
 <?xml version="1.0" encoding="utf-8"?>
@@ -358,7 +359,7 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
 </s:Application>
 ```
 
-### [BoardVO.as]
+#### [BoardVO.as]
 
 ```as
 package test.widwin.modules.board.vo
@@ -390,7 +391,7 @@ package test.widwin.modules.board.vo
         }
 }
 ```
-### [BoardController.java]
+#### [BoardController.java]
 
 ```java
 package test.widwin.blogics.board;
@@ -421,7 +422,7 @@ public class BoardController {
 }
 ```
 
-### [IBoardService.java]
+#### [IBoardService.java]
 
 ```java
 package test.widwin.blogics.board.service;
@@ -438,7 +439,7 @@ public interface IBoardService {
 }
 ```
 
-### [BoardServiceImpl.java]
+#### [BoardServiceImpl.java]
 
 ```java
 package test.widwin.blogics.board.service;
@@ -470,7 +471,7 @@ public class BoardServiceImpl implements IBoardService {
 }
 ```
 
-### [BoardDao.java]
+#### [BoardDao.java]
 
 ```java
 package test.widwin.blogics.board.dao;
@@ -497,7 +498,7 @@ public class BoardDao extends SqlSessionDaoSupport{
 
 패키지 인터페이스명.메소드 이름하고 BoardMapper.xml 에서 같은 인터페이스이름으로 namespace를 정의하면 된다.
 
-### [IBoardMapper.java]
+#### [IBoardMapper.java]
 
 ```java
 package test.widwin.blogics.board.dao;
@@ -514,7 +515,7 @@ public interface IBoardMapper {
 }
 ```
 
-### [BoardMapper.xml]
+#### [BoardMapper.xml]
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -541,7 +542,7 @@ public interface IBoardMapper {
 
 **namespace가 인터페이스랑 같아야한다.**
 
-### [log4j.xml] **log4j.properties로 관리해도 됨(log4j.xml이 가독성도 좋고 관리가 용이함)**
+#### [log4j.xml] **log4j.properties로 관리해도 됨(log4j.xml이 가독성도 좋고 관리가 용이함)**
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -635,7 +636,7 @@ public interface IBoardMapper {
 </log4j:configuration>
 ```
 
-### [applicationContext.xml]
+#### [applicationContext.xml]
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -655,7 +656,7 @@ public interface IBoardMapper {
 
 리스너를 따로 달아줬어도 applicationContext.xml은 WEB-INF/밑에 위치하여야 함.
 
-### [service-config.xml]
+#### [service-config.xml]
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -725,7 +726,7 @@ public interface IBoardMapper {
 
 BoardRO destination을 못 찾을때
 
-### [.flexProperties]
+#### [.flexProperties]
 
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
