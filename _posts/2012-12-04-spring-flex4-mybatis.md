@@ -10,15 +10,17 @@ categories: Flex
 
 * Adobe Flash Builder 4.6 Premium
 * Spring 3.2 FrameWork
-* Tomcat 7.0(Web Application Server)
-* MyBatis 3.2 **(iBatis 2.5 이후로 아파치 재단 지원력에서는 현재의 정보와 신기술을 맞춰갈 수 없다 판단하여 구글 코드 팀으로 옮겼단다.)**
-* blazeds 4.0 **(데이타 서비스 통신)**
-* spring-flex-1.5 integration **(Spring 과 Flex를 통신하기 위해 직접 클래스를 만들어 써야 하는 수고가 없도록 spring project 팀들이 고맙게도 만들어 두었다. ㄱㅅㄳ~)**
-* SLF4J(Simple logging Facade for Java) (로깅찍는거) 요즘 이거 많이쓴다.
+* Tomcat 7.0
+* MyBatis 3.2 
+> (iBatis 2.5 이후로 아파치 재단 지원력에서는 현재의 정보와 신기술을 맞춰갈 수 없다 판단하여 구글 코드 팀으로 옮겼단다.)
+* blazeds 4.0 
+> (데이타 서비스 통신)
+* spring-flex-1.5 integration 
+> (Spring 과 Flex를 통신하기 위해 직접 클래스를 만들어 써야 하는 수고가 없도록 spring project 팀들이 고맙게도 만들어 두었다. ㄱㅅㄳ~)
+* SLF4J(Simple logging Facade for Java)   
+> 요즘 로깅을 이걸로 많이 사용하는데 이유는 : [여기참조](http://devday.tistory.com/entry/SLF4J%EC%9D%98-%EC%9E%A5%EC%A0%90)
 
-이유는 : [여기참조](http://devday.tistory.com/entry/SLF4J%EC%9D%98-%EC%9E%A5%EC%A0%90)
-
-일단 플렉스를 이클립스의 플러그인으로 깔고 톰캣도 설치되있다는 전제하에 시작.
+### 일단 플렉스를 이클립스의 플러그인으로 깔고 톰캣도 설치되있다는 전제하에 시작.
 
 1. 먼저 이클립스의 왼쪽 빈공간에서 마우스 오른쪽을 눌러 New > Flex Project를 선택.
 
