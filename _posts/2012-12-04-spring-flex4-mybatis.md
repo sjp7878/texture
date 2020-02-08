@@ -23,7 +23,9 @@ categories: Flex
 1. 먼저 이클립스의 왼쪽 빈공간에서 마우스 오른쪽을 눌러 New > Flex Project를 선택.
 
 ![스크린샷 2020-02-01 오후 8 39 55](https://user-images.githubusercontent.com/12682121/73591543-1c612a80-4533-11ea-9a2d-2a260092ba9c.png)
+
 2. Project name에 자기가 입력하고 싶은 프로젝트 이름을 입력. Next
+
 ![스크린샷 2020-02-01 오후 8 48 35](https://user-images.githubusercontent.com/12682121/73591620-4109d200-4534-11ea-9a1d-d466562dd2ab.png)
 
 3. Application Server Type은 자바를 이용할것이니 Java, Use remote object access service는 blazeds를 이용할 것이니 그곳을 선택.
