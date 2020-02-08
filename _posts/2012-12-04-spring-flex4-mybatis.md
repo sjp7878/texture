@@ -66,7 +66,7 @@ Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로
 
 **다른 파일들은 모두 zip으로 압축이 되있는반면 jar로 압축이 되있었다. 압축을 풀면 lib폴더가 보인다.**
 
-8. 압축을 푼 lib 폴더 밑의 jar파일들(`aspectjrt.jar, aspectjtools.jar, aspectjweaver.jar, org.aspectj.matcher.jar`)을 복사.
+8. 압축을 푼 lib 폴더 밑의 jar파일들(`aspectjrt.jar`, `aspectjtools.jar`, `aspectjweaver.jar`, `org.aspectj.matcher.jar`)을 복사.
 9. Spring의 AOP alliance(namespace AOP를 사용할 수 있게 해줌)를 사용하기 위하여 [다운](http://sourceforge.net/projects/aopalliance/)
 이아이는 바로 jar파일로되있었다.
 10. aopalliance.jar 파일을 복사.
