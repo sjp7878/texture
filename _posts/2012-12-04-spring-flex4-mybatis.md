@@ -11,14 +11,12 @@ categories: Flex
 * Adobe Flash Builder 4.6 Premium
 * Spring 3.2 FrameWork
 * Tomcat 7.0
-* MyBatis 3.2 
-> (iBatis 2.5 이후로 아파치 재단 지원력에서는 현재의 정보와 신기술을 맞춰갈 수 없다 판단하여 구글 코드 팀으로 옮겼단다.)
-* blazeds 4.0 
-> (데이타 서비스 통신)
-* spring-flex-1.5 integration 
-> (Spring 과 Flex를 통신하기 위해 직접 클래스를 만들어 써야 하는 수고가 없도록 spring project 팀들이 고맙게도 만들어 두었다. ㄱㅅㄳ~)
+* MyBatis 3.2 **(iBatis 2.5 이후로 아파치 재단 지원력에서는 현재의 정보와 신기술을 맞춰갈 수 없다 판단하여 구글 코드 팀으로 옮겼단다.)**
+* blazeds 4.0(데이타 서비스 통신)
+* spring-flex-1.5 integration **(Spring 과 Flex를 통신하기 위해 직접 클래스를 만들어 써야 하는 수고가 없도록 spring project 팀들이 고맙게도 만들어 두었다. ㄱㅅㄳ~)**
 * SLF4J(Simple logging Facade for Java)   
-> 요즘 로깅을 이걸로 많이 사용하는데 이유는 : [여기참조](http://devday.tistory.com/entry/SLF4J%EC%9D%98-%EC%9E%A5%EC%A0%90)
+
+요즘 로깅을 이걸로 많이 사용하는데 이유는 : [여기참조](http://devday.tistory.com/entry/SLF4J%EC%9D%98-%EC%9E%A5%EC%A0%90)
 
 ### 일단 플렉스를 이클립스의 플러그인으로 깔고 톰캣도 설치되있다는 전제하에 시작.
 
@@ -31,9 +29,9 @@ categories: Flex
 ![스크린샷 2020-02-01 오후 8 48 35](https://user-images.githubusercontent.com/12682121/73591620-4109d200-4534-11ea-9a1d-d466562dd2ab.png)
 
 3. Application Server Type은 자바를 이용할것이니 Java, Use remote object access service는 blazeds를 이용할 것이니 그곳을 선택.
-Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로 바꿔줬다.
+Java source folder 는 src로 그냥 나두어도 되는데 나는 java_src로 바꿔줬다.
 
-4. Output folder 역시 기본은 bin-debug나 `WebContent`로 바꿔 주었다. **(즉 나는 컴파일된 파일을 WebContent 밑으로 바로 놓겠다는 거다)**
+4. Output folder 역시 기본은 bin-debug나 WebContent로 바꿔 주었다. **(즉 나는 컴파일된 파일을 WebContent 밑으로 바로 놓겠다는 거다)**
 
 5. Target runtime 옆의 New 버튼을 클릭.
 
@@ -52,7 +50,7 @@ Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로
 
 ![스크린샷 2020-02-01 오후 8 51 56](https://user-images.githubusercontent.com/12682121/73591660-b5dd0c00-4534-11ea-9ae2-b7517784e2eb.png)
 
-보면 output folder를 바꿨기 때문에 bin-debug 폴더가 안보이고 `WebContent` 폴더밑으로 기본 파일들이 생긴걸 확인할 수 있다.
+보면 output folder를 바꿨기 때문에 bin-debug 폴더가 안보이고 WebContent 폴더밑으로 기본 파일들이 생긴걸 확인할 수 있다.
 
 ## Spring과 Flex 연동.
 
@@ -68,7 +66,7 @@ Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로
 
 **다른 파일들은 모두 zip으로 압축이 되있는반면 jar로 압축이 되있었다. 압축을 풀면 lib폴더가 보인다.**
 
-8. 압축을 푼 lib 폴더 밑의 jar파일들(`aspectjrt.jar`, `aspectjtools.jar`, `aspectjweaver.jar`, `org.aspectj.matcher.jar`)을 복사.
+8. 압축을 푼 lib 폴더 밑의 jar파일들(aspectjrt.jar, aspectjtools.jar, aspectjweaver.jar, org.aspectj.matcher.jar)을 복사.
 9. Spring의 AOP alliance(namespace AOP를 사용할 수 있게 해줌)를 사용하기 위하여 [다운](http://sourceforge.net/projects/aopalliance/)
 이아이는 바로 jar파일로되있었다.
 10. aopalliance.jar 파일을 복사.
@@ -129,17 +127,17 @@ Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로
   </welcome-file-list>
 </web-app>
 ```
-servlet-name을 `MessageBrokerServlet`으로 하였기때문에 spring에서 `MessageBrokerServlet-servlet.xml`을 찾으려 할것이다.
+servlet-name을 MessageBrokerServlet으로 하였기때문에 spring에서 MessageBrokerServlet-servlet.xml을 찾으려 할것이다.
 
-하지만 파일들을 다른걸로 할거기 때문에 `ContextLoaderListener`를 달아준다.
+하지만 파일들을 다른걸로 할거기 때문에 ContextLoaderListener를 달아준다.
 
 xml파일 하나에 모든걸 다 때려넣을 수도 있지만 spring에서도 권장하듯이 서비스단, 데이타단, 화면단, 보안단 등등 이렇게 분할해 놓는게 나중에 유지보수 하기에도 좋다.
 
-나는 설정을 가지고 있는 `web-application-config.xml`, flex의 remote object의 destination과 해당 자바정보를 갖고 있는 `bean-remoting-destination.xml`, 마지막으로
+나는 설정을 가지고 있는 web-application-config.xml, flex의 remote object의 destination과 해당 자바정보를 갖고 있는 bean-remoting-destination.xml, 마지막으로
 
-MyBatis에 관련한 `mybatis-config.xml` 세가지 xml로 분류하여 WEB-INF/configs 라는 폴더 밑에 넣어두었다.
+MyBatis에 관련한 mybatis-config.xml 세가지 xml로 분류하여 WEB-INF/configs 라는 폴더 밑에 넣어두었다.
 
-servlet-mapping의 url-pattern의 `/messagebroker/*` (flex의 AMF통신) 오는건 spring의 DispatcherServlet 클래스에서 처리하게된다.
+servlet-mapping의 url-pattern의 /messagebroker/* (flex의 AMF통신) 오는건 spring의 DispatcherServlet 클래스에서 처리하게된다.
 
 #### [web-application-config.xml]
 
@@ -217,7 +215,7 @@ servlet-mapping의 url-pattern의 `/messagebroker/*` (flex의 AMF통신) 오는�
 </beans>
 ```
 
-properties configuration에서 반드시 `classpath*`를 붙여주어야한다. 상대경로로 찾기때문에 안붙여주면 찾지 못한다.
+properties configuration에서 반드시 classpath* 를 붙여주어야한다. 상대경로로 찾기때문에 안붙여주면 찾지 못한다.
 
 #### [jdbc.test.properties]
 
