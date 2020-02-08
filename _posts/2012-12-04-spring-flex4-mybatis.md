@@ -6,46 +6,40 @@ date:   2016-10-27 23:07:44 +0530
 categories: Flex
 ---
 
-구성
+## 구성
 
-<span style="color:blue;">Adobe Flash Builder 4.6 Premium</span>
-
-<span style="color:blue;">Spring 3.2 FrameWork</span>
-
-<span style="color:blue;">Tomcat 7.0</span>(Web Application Server)
-
-<span style="color:blue;">MyBatis 3.2</span>(iBatis 2.5 이후로 아파치 재단 지원력에서는 현재의 정보와 신기술을 맞춰갈 수 없다 판단하여 구글 코드 팀으로 옮겼단다.)
-
-<span style="color:blue;">blazeds 4.0</span>(데이타 서비스 통신)
-
-<span style="color:blue;">spring-flex-1.5 integration</span>(Spring 과 Flex를 통신하기 위해 직접 클래스를 만들어 써야 하는 수고가 없도록 spring project 팀들이 고맙게도 만들어 두었다. ㄱㅅㄳ~)
-
-<span style="color:blue;">SLF4J</span>(Simple logging Facade for Java) (로깅찍는거) 요즘 이거 많이쓴다.
+* Adobe Flash Builder 4.6 Premium
+* Spring 3.2 FrameWork
+* Tomcat 7.0(Web Application Server)
+* MyBatis 3.2 **(iBatis 2.5 이후로 아파치 재단 지원력에서는 현재의 정보와 신기술을 맞춰갈 수 없다 판단하여 구글 코드 팀으로 옮겼단다.)**
+* blazeds 4.0 **(데이타 서비스 통신)**
+* spring-flex-1.5 integration **(Spring 과 Flex를 통신하기 위해 직접 클래스를 만들어 써야 하는 수고가 없도록 spring project 팀들이 고맙게도 만들어 두었다. ㄱㅅㄳ~)**
+* SLF4J(Simple logging Facade for Java) (로깅찍는거) 요즘 이거 많이쓴다.
 
 이유는 : [여기참조](http://devday.tistory.com/entry/SLF4J%EC%9D%98-%EC%9E%A5%EC%A0%90)
 
 일단 플렉스를 이클립스의 플러그인으로 깔고 톰캣도 설치되있다는 전제하에 시작.
 
-먼저 이클립스의 왼쪽 빈공간에서 마우스 오른쪽을 눌러 New > Flex Project를 선택.
+1. 먼저 이클립스의 왼쪽 빈공간에서 마우스 오른쪽을 눌러 New > Flex Project를 선택.
 
 ![스크린샷 2020-02-01 오후 8 39 55](https://user-images.githubusercontent.com/12682121/73591543-1c612a80-4533-11ea-9a2d-2a260092ba9c.png)
-Project name에 자기가 입력하고 싶은 프로젝트 이름을 입력. Next
+2. Project name에 자기가 입력하고 싶은 프로젝트 이름을 입력. Next
 ![스크린샷 2020-02-01 오후 8 48 35](https://user-images.githubusercontent.com/12682121/73591620-4109d200-4534-11ea-9a1d-d466562dd2ab.png)
 
-Application Server Type은 자바를 이용할것이니 Java, Use remote object access service는 blazeds를 이용할 것이니 그곳을 선택.
-Java source folder 는 src로 그냥 나두어도 되는데 나는 java_src(flex는 flex_src로 되있는데 자바는 src로 되있으면 이샹해서;;)로 바꿔줬다.
+3. Application Server Type은 자바를 이용할것이니 Java, Use remote object access service는 blazeds를 이용할 것이니 그곳을 선택.
+Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로 바꿔줬다.
 
-Output folder 역시 기본은 bin-debug나 WebContent로 바꿔 주었다.(즉 나는 컴파일된 파일을 WebContent 밑으로 바로 놓겠다는 거다)
+4. Output folder 역시 기본은 bin-debug나 `WebContent`로 바꿔 주었다. **(즉 나는 컴파일된 파일을 WebContent 밑으로 바로 놓겠다는 거다)**
 
-Target runtime 옆의 New 버튼을 클릭.
+5. Target runtime 옆의 New 버튼을 클릭.
 
 ![스크린샷 2020-02-01 오후 8 49 32](https://user-images.githubusercontent.com/12682121/73591632-60086400-4534-11ea-875a-a776f660fbde.png)
 
 
-Apach 폴더의 자기에 맞는(나는 7.0)버젼을 찾아 선택해 주면 아래의 항목들이 기본으로 보인다. Finish를 눌러 완료.
+6. Apach 폴더의 자기에 맞는(나는 7.0)버젼을 찾아 선택해 주면 아래의 항목들이 기본으로 보인다. Finish를 눌러 완료.
 ![스크린샷 2020-02-01 오후 8 50 20](https://user-images.githubusercontent.com/12682121/73591642-7ca49c00-4534-11ea-9be1-2e7f6e4bed5d.png)
 
-이제 톰캣을 설정하였으므로 Target runtime에서 콤보박스 화살표를 누르면 방금 설치한 이름의 톰캣이 보인다.
+7. 이제 톰캣을 설정하였으므로 Target runtime에서 콤보박스 화살표를 누르면 방금 설치한 이름의 톰캣이 보인다.
 그걸로 바꿔주고 Next.
 
 ![스크린샷 2020-02-01 오후 8 51 09](https://user-images.githubusercontent.com/12682121/73591652-9d6cf180-4534-11ea-8646-98b13c1cfa82.png)
@@ -53,54 +47,38 @@ Apach 폴더의 자기에 맞는(나는 7.0)버젼을 찾아 선택해 주면 �
 Output folder URL에 일단 로컬에서 돌리기때문에 톰캣의 기본설정 포트 8080으로 Context root가 TEST 이므로 TEST 위와 같이 한다. Finish.
 ![스크린샷 2020-02-01 오후 8 51 56](https://user-images.githubusercontent.com/12682121/73591660-b5dd0c00-4534-11ea-9ae2-b7517784e2eb.png)
 
-보면 output folder를 바꿨기 때문에 bin-debug 폴더가 안보이고 WebContent 폴더밑으로 기본 파일들이 생긴걸 확인할 수 있다.
-다음으로 Spring과 Flex를 연동 해야한다.
+보면 output folder를 바꿨기 때문에 bin-debug 폴더가 안보이고 `WebContent` 폴더밑으로 기본 파일들이 생긴걸 확인할 수 있다.
 
-모든 jar파일들은 합해놓은게 [여기](http://blog.naver.com/sjp007774/150153185137)에 있다.
+## 다음으로 Spring과 Flex를 연동 해야한다.
 
-먼저 Spring을 사용하기 위하여 [다운](http://www.springsource.org/download/community)
+**모든 jar파일들은 합해놓은게 [여기](http://blog.naver.com/sjp007774/150153185137)에 있다.**
 
-다운받은 Spring 폴더의 libs(3.2 기준)밑의 필요한 파일들(난 그냥 잘몰라서 다 복사하였다;;)을 복사.
+1. 먼저 Spring을 사용하기 위하여 [다운](http://www.springsource.org/download/community)
+2. 다운받은 Spring 폴더의 libs(3.2 기준)밑의 필요한 파일들을 복사.
+3. MyBatis를 사용하기 위하여 MyBatis를 [다운](http://code.google.com/p/mybatis/downloads/list?can=3&q=Product%3DMyBatis)
+4. 다운 받은 MyBatis 폴더의 jar파일(mybatis-3.2.0-SNAPSHOT.jar)을 복사.
+5. MyBatis와 Spring을 연동하기 위하여 필요한 jar파일을 [다운](http://code.google.com/p/mybatis/downloads/list?q=label:Product-Spring)
+6. 다운받은 폴더의 jar파일(mybatis-spring-1.1.1.jar)을 복사.
+7. Spring의 Aspect을 사용하기 위해(3.0 부터는 Aspectj 관련 jar파일들이 함께 있지 않다.) [다운](http://www.eclipse.org/aspectj/downloads.php)
 
-MyBatis를 사용하기 위하여 MyBatis를 [다운](http://code.google.com/p/mybatis/downloads/list?can=3&q=Product%3DMyBatis)
+**다른 파일들은 모두 zip으로 압축이 되있는반면 jar로 압축이 되있었다. 압축을 풀면 lib폴더가 보인다.**
 
-다운 받은 MyBatis 폴더의 jar파일(mybatis-3.2.0-SNAPSHOT.jar)을 복사.
-
-MyBatis와 Spring을 연동하기 위하여 필요한 jar파일을 [다운](http://code.google.com/p/mybatis/downloads/list?q=label:Product-Spring)
-
-다운받은 폴더의 jar파일(mybatis-spring-1.1.1.jar)을 복사.
-
-Spring의 Aspect을 사용하기 위해(3.0 부터는 Aspectj 관련 jar파일들이 함께 있지 않다.) [다운](http://www.eclipse.org/aspectj/downloads.php)
-
-주의 할게 내가 잘몰라 이상한걸 받았을수도 있는데 다른 파일들은 모두 zip으로 압축이 되있는반면 jar로 압축이 되있었다. 압축을 풀면 lib폴더가 보인다.
-(이것때문에 엄청 고생했다. 당연히 jar파일이라서 그대로 넣으면 될줄 알았다 ㅠㅠ)
-
-압축을 푼 lib 폴더 밑의 jar파일들(aspectjrt.jar, aspectjtools.jar, aspectjweaver.jar, org.aspectj.matcher.jar 이역시 몰라서 다 복사했다;;)을 복사.
-
-Spring의 AOP alliance(namespace AOP를 사용할 수 있게 해줌)를 사용하기 위하여 [다운](http://sourceforge.net/projects/aopalliance/)
-
+8. 압축을 푼 lib 폴더 밑의 jar파일들(`aspectjrt.jar, aspectjtools.jar, aspectjweaver.jar, org.aspectj.matcher.jar`)을 복사.
+9. Spring의 AOP alliance(namespace AOP를 사용할 수 있게 해줌)를 사용하기 위하여 [다운](http://sourceforge.net/projects/aopalliance/)
 이아이는 바로 jar파일로되있었다.
-
-aopalliance.jar 파일을 복사.
-
-SLF4J(log4j 같은거) 를 사용하기 위하여 [다운](http://slf4j.org/download.html)
-
-다운받은 폴더의 jar파일들(slf4j-api-1.7.2.jar, slf4j-log4j12-1.7.2.jar)을 복사.
-
-log4jdbc(쿼리의 ?에 바로 값을 대입하여 보여줌)를 사용하기 위하여 [다운](http://code.google.com/p/log4jdbc/downloads/list)
-
-다운받은 lib폴더의 jar파일(slf4j-api-1.6.0.jar)을 복사.
-
-log4j(로깅 찍는거)를 사용하기 위하여 다운.
-
-log4j-1.2.16.jar 파일을 복사
-
-지금까지 복사한 모든 파일들을 WebContent/WEB-INF/lib 폴더밑으로 다 넣는다.
+10. aopalliance.jar 파일을 복사.
+11. SLF4J(log4j 같은거) 를 사용하기 위하여 [다운](http://slf4j.org/download.html)
+12. 다운받은 폴더의 jar파일들(slf4j-api-1.7.2.jar, slf4j-log4j12-1.7.2.jar)을 복사.
+13. log4jdbc(쿼리의 ?에 바로 값을 대입하여 보여줌)를 사용하기 위하여 [다운](http://code.google.com/p/log4jdbc/downloads/list)
+14. 다운받은 lib폴더의 jar파일(slf4j-api-1.6.0.jar)을 복사.
+15. log4j(로깅 찍는거)를 사용하기 위하여 다운.
+16. log4j-1.2.16.jar 파일을 복사
+17. 지금까지 복사한 모든 파일들을 WebContent/WEB-INF/lib 폴더밑으로 다 넣는다.
 
 ![스크린샷 2020-02-01 오후 8 55 52](https://user-images.githubusercontent.com/12682121/73591698-41569d00-4535-11ea-86e9-795941f2fe35.png)
 
-다음으로 WEB-INF/web.xml 파일을 수정해야 된다.
-<span style="color:blue;">[web.xml]</span>
+## 다음으로 'WEB-INF/web.xml' 파일을 수정해야 된다.
+### [web.xml]
 
 ```flex
 <?xml version="1.0" encoding="UTF-8"?>
@@ -181,21 +159,21 @@ log4j-1.2.16.jar 파일을 복사
         -->
 </web-app>
 ```
-servlet-name을 MessageBrokerServlet으로 하였기때문에 spring에서 MessageBrokerServlet-servlet.xml을 찾으려 할것이다.
+servlet-name을 `MessageBrokerServlet`으로 하였기때문에 spring에서 `MessageBrokerServlet-servlet.xml`을 찾으려 할것이다.
 
-하지만 파일들을 다른걸로 할거기 때문에 ContextLoaderListener를 달아준다.
+하지만 파일들을 다른걸로 할거기 때문에 `ContextLoaderListener`를 달아준다.
 
 xml파일 하나에 모든걸 다 때려넣을 수도 있지만 spring에서도 권장하듯이 서비스단, 데이타단, 화면단, 보안단 등등 이렇게 분할해 놓는게 나중에 유지보수 하기에도 좋다.
 
-나는 설정을 가지고 있는 web-application-config.xml, flex의 remote object의 destination과 해당 자바정보를 갖고 있는 bean-remoting-destination.xml, 마지막으로
+나는 설정을 가지고 있는 `web-application-config.xml`, flex의 remote object의 destination과 해당 자바정보를 갖고 있는 `bean-remoting-destination.xml`, 마지막으로
 
-MyBatis에 관련한 mybatis-config.xml 세가지 xml로 분류하여 WEB-INF/configs 라는 폴더 밑에 넣어두었다.
+MyBatis에 관련한 `mybatis-config.xml` 세가지 xml로 분류하여 WEB-INF/configs 라는 폴더 밑에 넣어두었다.
 
-servlet-mapping의 url-pattern의 /messagebroker/* (flex의 AMF통신) 오는건 spring의 DispatcherServlet 클래스에서 처리하게된다.
+servlet-mapping의 url-pattern의 `/messagebroker/*` (flex의 AMF통신) 오는건 spring의 DispatcherServlet 클래스에서 처리하게된다.
 
-<span style="color:blue;">[web-application-config.xml]</span>
+### [web-application-config.xml]
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -280,10 +258,11 @@ servlet-mapping의 url-pattern의 /messagebroker/* (flex의 AMF통신) 오는건
 </beans>
 ```
 
-properties configuration에서 반드시 classpath*를 붙여주어야한다. 상대경로로 찾기때문에 안붙여주면 찾지 못한다.
+properties configuration에서 반드시 `classpath*`를 붙여주어야한다. 상대경로로 찾기때문에 안붙여주면 찾지 못한다.
 
-<span style="color:blue;">[jdbc.test.properties]</span>
+### [jdbc.test.properties]
 
+```
 #jdbc.widwin.driverClassName= oracle.jdbc.OracleDriver
 jdbc.widwin.driverClassName=net.sf.log4jdbc.DriverSpy
 
@@ -291,12 +270,12 @@ jdbc.widwin.driverClassName=net.sf.log4jdbc.DriverSpy
 jdbc.widwin.url=jdbc:log4jdbc:oracle:thin:@xxx.xxx.x.x:1521:TEST
 jdbc.widwin.username=TEST
 jdbc.widwin.password=test
-
+```
 slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.(xxx 를 아이피로 바꿔주면 됨)
 
-<span style="color:blue;">[bean-remoting-destination.xml]</span>
+### [bean-remoting-destination.xml]
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -322,9 +301,9 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
 
 <context:component-scan... 이 있으면 <bean에 class를 설정하지 않아도 됨. destination에 message-broker 꼭 설정해줘야 함. remoting-config.xml 파일은 관리안함.
 
-<span style="color:blue;">[mybatis-config.xml]</span>
+### [mybatis-config.xml]
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
@@ -368,11 +347,11 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
 </configuration>
 ```
 
-<mappers>부분을 주석을 풀어서 관리해도 되나 web-application-config.xml에서 mapperLocations를 *로 잡아주었으므로
+<mappers>부분을 주석을 풀어서 관리해도 되나 `web-application-config.xml` 에서 mapperLocations를 *로 잡아주었으므로
 
 따로 관리하지 않아도 된다.
 
-<span style="color:blue;">[TEST.mxml]</span>
+### [TEST.mxml]
 
 ```flex
 <?xml version="1.0" encoding="utf-8"?>
@@ -457,9 +436,9 @@ slf4j를 사용하면 driverClassName과 url에 log4jdbc를 끼어넣어야 함.
 </s:Application>
 ```
 
-<span style="color:blue;">[BoardVO.as]</span>
+### [BoardVO.as]
 
-```java
+```as
 package test.widwin.modules.board.vo
 {
 
@@ -489,7 +468,7 @@ package test.widwin.modules.board.vo
         }
 }
 ```
-<span style="color:blue;">[BoardController.java]</span>
+### [BoardController.java]
 
 ```java
 package test.widwin.blogics.board;
@@ -520,7 +499,7 @@ public class BoardController {
 }
 ```
 
-<span style="color:blue;">[IBoardService.java]</span>
+### [IBoardService.java]
 
 ```java
 package test.widwin.blogics.board.service;
@@ -537,7 +516,7 @@ public interface IBoardService {
 }
 ```
 
-<span style="color:blue;">[BoardServiceImpl.java]</span>
+### [BoardServiceImpl.java]
 
 ```java
 package test.widwin.blogics.board.service;
@@ -569,7 +548,7 @@ public class BoardServiceImpl implements IBoardService {
 }
 ```
 
-<span style="color:blue;">[BoardDao.java]</span>
+### [BoardDao.java]
 
 ```java
 package test.widwin.blogics.board.dao;
@@ -602,7 +581,7 @@ public class BoardDao extends SqlSessionDaoSupport{
 
 패키지 인터페이스명.메소드 이름하고 BoardMapper.xml 에서 같은 인터페이스이름으로 namespace를 정의하면 된다.
 
-<span style="color:blue;">[IBoardMapper.java]</span>
+### [IBoardMapper.java]
 
 ```java
 package test.widwin.blogics.board.dao;
@@ -619,9 +598,9 @@ public interface IBoardMapper {
 }
 ```
 
-<span style="color:blue;">[BoardMapper.xml]</span>
+### [BoardMapper.xml]
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
@@ -644,11 +623,11 @@ public interface IBoardMapper {
 </mapper>
 ```
 
-namespace가 인터페이스랑 같아야한다.
+**namespace가 인터페이스랑 같아야한다.**
 
-<span style="color:blue;">[log4j.xml]</span> log4j.properties로 관리해도 됨(log4j.xml이 가독성도 좋고 관리가 용이함)
+### [log4j.xml] **log4j.properties로 관리해도 됨(log4j.xml이 가독성도 좋고 관리가 용이함)**
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 
@@ -757,9 +736,9 @@ namespace가 인터페이스랑 같아야한다.
 </log4j:configuration>
 ```
 
-<span style="color:blue;">[applicationContext.xml]</span>
+### [applicationContext.xml]
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -777,9 +756,9 @@ namespace가 인터페이스랑 같아야한다.
 
 리스너를 따로 달아줬어도 applicationContext.xml은 WEB-INF/밑에 위치하여야 함.
 
-<span style="color:blue;">[service-config.xml]</span>
+### [service-config.xml]
 
-```xml
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <services-config>
 
@@ -888,11 +867,12 @@ namespace가 인터페이스랑 같아야한다.
 
 BoardRO destination을 못 찾을때
 
-<span style="color:blue;">[.flexProperties]</span>
+### [.flexProperties]
 
+```
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexProperties enableServiceManager="false" flexServerFeatures="4" flexServerType="8" flexWarLocation="C:/자료/교육시이트/blazeds-bin-4.0.0.14931/blazeds.war" serverContextRoot="/TEST" serverRoot="C:/testWorkspace/TEST/WebContent" serverRootURL="http://localhost:8080/TEST" toolCompile="true" useServerFlexSDK="false" version="2"/>
-
+```
 <span style="color:red;">serverContextRoot가 /WebContent로 잡혀있는데 꼭 맞는 contextRoot 바꿔줘야 함(여기서는 /TEST)</span>
 
 [flex bug report](http://bugs.adobe.com/jira/browse/FB-20894)에 기재되있음
