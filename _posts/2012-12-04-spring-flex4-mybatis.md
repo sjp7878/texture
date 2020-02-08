@@ -37,8 +37,8 @@ Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로
 
 ![스크린샷 2020-02-01 오후 8 49 32](https://user-images.githubusercontent.com/12682121/73591632-60086400-4534-11ea-875a-a776f660fbde.png)
 
-
 6. Apach 폴더의 자기에 맞는(나는 7.0)버젼을 찾아 선택해 주면 아래의 항목들이 기본으로 보인다. Finish를 눌러 완료.
+
 ![스크린샷 2020-02-01 오후 8 50 20](https://user-images.githubusercontent.com/12682121/73591642-7ca49c00-4534-11ea-9be1-2e7f6e4bed5d.png)
 
 7. 이제 톰캣을 설정하였으므로 Target runtime에서 콤보박스 화살표를 누르면 방금 설치한 이름의 톰캣이 보인다.
@@ -46,7 +46,8 @@ Java source folder 는 src로 그냥 나두어도 되는데 나는 `java_src`로
 
 ![스크린샷 2020-02-01 오후 8 51 09](https://user-images.githubusercontent.com/12682121/73591652-9d6cf180-4534-11ea-8646-98b13c1cfa82.png)
 
-Output folder URL에 일단 로컬에서 돌리기때문에 톰캣의 기본설정 포트 8080으로 Context root가 TEST 이므로 TEST 위와 같이 한다. Finish.
+8. Output folder URL에 일단 로컬에서 돌리기때문에 톰캣의 기본설정 포트 8080으로 Context root가 TEST 이므로 TEST 위와 같이 한다. Finish.
+
 ![스크린샷 2020-02-01 오후 8 51 56](https://user-images.githubusercontent.com/12682121/73591660-b5dd0c00-4534-11ea-9ae2-b7517784e2eb.png)
 
 보면 output folder를 바꿨기 때문에 bin-debug 폴더가 안보이고 `WebContent` 폴더밑으로 기본 파일들이 생긴걸 확인할 수 있다.
