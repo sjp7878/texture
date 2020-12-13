@@ -45,4 +45,4 @@ FROM CTE
 ORDER BY AREA_CAT_NM_PATH
 ```
 
-아직은 Oracle Connection By에 비하면 많이 비약하다;; 
+아직은 Oracle Connect By에 비하면 많이 비약하다;; 
