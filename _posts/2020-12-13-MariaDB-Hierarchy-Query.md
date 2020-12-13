@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "MariaDB Hirarchey Query"
+title:  "MariaDB Hierarchy Query"
 description: Maria DB 계층적 쿼리
 date:   2020-12-13 14:31:44 +0530
 categories: MariaDB
